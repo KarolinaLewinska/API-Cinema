@@ -6,3 +6,4 @@
 **Język:** JavaScript <br />
 **Baza:** MongoDB <br />
 **Struktura projektu:** <br />
+![structure](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/structure.PNG) <br />
