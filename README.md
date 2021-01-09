@@ -52,4 +52,35 @@
 **Middleware:** <br />
 - **uwierzytelnianie** <br />
 ![authMiddleware](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/authMiddleware.PNG) <br />
-
+**Kontrolery:** <br />
+- **movies.js metody:** <br />
+a) **allMovies** - lista filmów, <br />
+b) **newMovie** - dodawanie filmu do repertuaru, <br />
+c) **movieDetails** - szczegóły pozycji w repertuarze o określonym ID, <br />
+d) **movieUpdate** - aktualizacja danych dotyczących filmu, <br />
+e) **movieDelete** - usuwanie filmu z bazy. <br />
+![moviesController](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/moviesController.PNG) <br />
+![moviesController2](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/moviesController2.PNG) <br />
+- **products.js metody:** <br />
+a) **allProducts** - lista produktów, <br />
+b) **newProduct** - dodawanie produktu do bazy, <br />
+c) **productDetails** - szczegóły produktu w bazie o określonym ID, <br />
+d) **productUpdate** - aktualizacja danych dotyczących produktu, <br />
+e) **productDelete** - usuwanie produktu z bazy. <br />
+![productsController](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/productsController.PNG) <br />
+![productsController2](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/productsController2.PNG) <br />
+- **purchases.js metody:** <br />
+a) **allPurchases** - historia dokonanych zakupów w kinie, <br />
+b) **newPurchase** - dodawanie kolejnych zakupów do bazy, <br />
+c) **purchaseDetails** - szczegóły zakupów o określonym ID, <br />
+d) **purchaseUpdate** - aktualizacja danych dotyczących konkretnego zakupu, <br />
+e) **purchaseDelete** - usuwanie danych dotyczących zakupu z bazy. <br />
+![purchasesController](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/purchasesController.PNG) <br />
+![purchasesController2](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/purchasesController2.PNG) <br />
+- **users.js metody:** <br />
+a) **allUsers** – lista wszystkich kont użytkowników mających dostęp do bazy, <br />
+b) **newUser** – rejestracja użytkownika, <br />
+c) **userDelete** – usunięcie konta użytkownika o określonym ID, <br />
+d) **userLogin** – logowanie się do API. <br />
+![usersController](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/usersController.PNG) <br />
+![usersController2](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/usersController2.PNG) <br />
