@@ -19,4 +19,37 @@
 **/:movieId** – szczegóły pozycji o podanym ID (**GET**) <br />
 **/:movieId** – aktualizacja pozycji w bazie o podanym id (**PATCH**) <br />
 **/:movieId** – usunięcie pozycji z bazy o podanym id (**DELETE**) <br />
-![movieRoutes](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/movieRoutes.PNG) <br />
+![moviesRoutes](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/movieRoutes.PNG) <br />
+- **products** – baza z produktami do kupienia w kinie <br />
+**/** - wszystkie produkty (**GET**) <br />
+**/** - dodawanie produktu do bazy (**POST**) <br />
+**/:productId** – szczegóły pozycji o podanym ID (**GET**) <br />
+**/:productId** – aktualizacja pozycji w bazie o podanym ID (**PATCH**) <br />
+**/:productId** – usunięcie pozycji z bazy o podanym ID (**DELETE**) <br />
+![productsRoutes](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/productRoutes.PNG) <br />
+- **purchases** – zakupy dokonane w kinie <br />
+**/** - lista wszystkich dokonanych zakupów w kinie (**GET**) <br />
+**/** - dodawanie zakupu do bazy (**POST**) <br />
+**/:purchaseId** – szczegóły pozycji o ID (**GET**) <br />
+**/:purchaseId** – aktualizacja pozycji w bazie o podanym ID (**PATCH**) <br />
+**/:purchaseId** – usunięcie pozycji z bazy o podanym ID (**DELETE**) <br />
+![purchasesRoutes](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/purchaseRoutes.PNG) <br />
+- **users** – baza z użytkownikami mającymi dostęp do API <br />
+**/** - lista wszystkich kont użytkowników <br />
+**/signup** – rejestracja użytkownika <br />
+**/:userId** – usunięcie konta  użytkownika <br />
+**/login** – zalogowanie użytkownika <br />
+![usersRoutes](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/usersRoutes.PNG) <br />
+**Modele:** <br />
+- **Movie** <br />
+![movieModel](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/movieModel.PNG) <br />
+- **Product** <br />
+![productModel](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/productModel.PNG) <br />
+- **Purchase** <br />
+![purchaseModel](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/purchaseModel.PNG) <br />
+- **User** <br />
+![userModel](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/userModel.PNG) <br />
+**Middleware:** <br />
+- **uwierzytelnianie** <br />
+![authMiddleware](https://github.com/KarolinaLewinska/CinemaAPI/blob/master/ReadmeIMG/authMiddleware.PNG) <br />
+
