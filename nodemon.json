@@ -1,0 +1,6 @@
+{
+    "env": {
+        "dbPassword": "cinema2021",
+        "JWTpassword": "JWTtoken"
+    }
+}
