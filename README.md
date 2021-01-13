@@ -1,5 +1,4 @@
-# Cinema REST API Node.js
-**Projekt na zaliczenie przedmiotu "Programowanie Ruby".** <br />
+# REST API Node.js
 **Autorzy:** [Karolina Lewińska](https://github.com/KarolinaLewinska), [Justyna Gapys](https://github.com/justynagapys) <br />
 **Grupa S22-32** <br />
 **Tematyka API:** Kino <br />
