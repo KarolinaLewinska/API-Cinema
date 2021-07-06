@@ -11,8 +11,7 @@ const purchaseRoutes = require('./api/routes/purchases');
 const userRoutes = require('./api/routes/users');
 
 mongoose.connect (
-    'mongodb+srv://cinemaAdmin:' +
-    process.env.dbPassword +
+    'mongodb+srv://cinemaAdmin:' + process.env.dbPassword +
     '@cinema.tahqb.mongodb.net/<dbname>?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true }
 );

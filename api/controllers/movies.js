@@ -21,11 +21,10 @@ exports.newMovie = (req, res, next) => {
         screeingRoom: req.body.screeingRoom,
         minimalAge: req.body.minimalAge,
     });
-    movie
-    .save()
+    movie.save()
     .then((doc) => {
         res.status(200).json({
-            message: 'Dodano nową pozycję do repertuaru',
+            message: 'Dodano nową pozycję do repertuaru:',
             info: doc,
         });
     })
@@ -37,7 +36,7 @@ exports.movieDetails = (req, res, next) => {
     Movie.findById(id)
     .then((doc) => {
         res.status(200).json({
-            message: 'Informacje o pozycji repertuaru nr ' + id,
+            message: 'Szczegóły pozycji o identyfikatorze: ' + id,
             info: doc,
         });
     })
@@ -59,7 +58,7 @@ exports.movieUpdate = (req, res, next) => {
     )
     .then((doc) => {
         res.status(201).json({
-            message: 'Zaktualizowano pozycję w repertuarze o numerze ' + id,
+            message: 'Zaktualizowano pozycję o identyfikatorze: ' + id,
             info: doc,
         });
     })
@@ -71,7 +70,7 @@ exports.movieDelete = (req, res, next) => {
     Movie.findByIdAndRemove(id)
     .then((doc) => {
         res.status(200).json({
-            message: 'Usunięto pozycję numer ' + id,
+            message: 'Usunięto pozycję o identyfikatorze: ' + id,
             info: doc,
         });
     })

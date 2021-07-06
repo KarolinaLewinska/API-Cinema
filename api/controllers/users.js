@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const mongoose = require('mongoose');
 
-
 exports.allUsers = (req, res, next) => {    
     User.find()
     .then((docs) => {
@@ -17,7 +16,7 @@ exports.allUsers = (req, res, next) => {
 
 exports.newUser = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, (err, hash) => {   
-        if(err) {
+        if (err) {
             res.status(500).json({wiadomość: err});
         } else {
             const user = new User({
@@ -50,17 +49,17 @@ exports.userLogin = (req, res, next) => {
     User.findOne({ email: req.body.email })
     .then((user) => {
         if (!user) {
-          res.status(401).json({ wiadomość: 'Błąd autoryzacji' });  
+          res.status(404).json({ wiadomość: 'Błąd autoryzacji' });  
         }
         bcrypt.compare(req.body.password, user.password, (err, result) => {
             if (err) {
                 res.status(500).json({ wiadomość: err });  
             }
             if (result) {   
-                const token = jwt.sign (
+                const token = jwt.sign(
                     {
-                    email: user.email,
-                    userId: user._id,
+                        email: user.email,
+                        userId: user._id,
                     },
                     process.env.JWTpassword,
                     {
@@ -70,7 +69,7 @@ exports.userLogin = (req, res, next) => {
                 res.status(200).json({ 
                     wiadomość: 'Zalogowano użytkownika', 
                     token: token });
-            }else {
+            } else {
                 res.status(401).json({ wiadomość: 'Błąd autoryzacji' });  
             }
         })
