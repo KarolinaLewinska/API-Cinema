@@ -27,13 +27,18 @@ app.use('/purchases', purchaseRoutes);
 app.use('/users', userRoutes);
 
 app.use((req, res, next) => {
-    const error = new Error("Nie odnaleziono");
-    error.status = 404;
+    const error = new Error("Nieprawidłowe żądanie");
+    error.status = 400;
     next(error);
 });
 app.use((req, res, next) => {
-    const error = new Error("Nieprawidłowe żądanie");
-    error.status = 400;
+    const error = new Error("Dostęp do zasobu zabroniony")
+    error.status = 403;
+    next(error);
+})
+app.use((req, res, next) => {
+    const error = new Error("Nie odnaleziono podanego zasobu");
+    error.status = 404;
     next(error);
 });
 app.use((error, req, res, next) => {

@@ -32,9 +32,7 @@
     "qs": "^6.9.4",
     "yarn": "^1.22.10"
   },
-  
   "devDependencies": {
     "nodemon": "^2.0.6"
   }
-
 }

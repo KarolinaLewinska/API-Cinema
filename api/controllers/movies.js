@@ -1,16 +1,15 @@
 const mongoose = require('mongoose');
-
 const Movie = require('../models/movie');
 
 exports.allMovies = (req, res, next) => {    
     Movie.find()
     .then((docs) => {
         res.status(200).json({
-            message: 'Repertuar: ',
+            message: 'Dostępny Repertuar: ',
             info: docs,
         });
     })
-    .catch((err) => res.status(503).json({message: err}));
+    .catch((err) => res.status(500).json({message: err}));
 };
 
 exports.newMovie = (req, res, next) => {
