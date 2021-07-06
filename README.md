@@ -1,5 +1,5 @@
-# REST API Node.js
-**Autorzy:** [Karolina Lewińska](https://github.com/KarolinaLewinska), [Justyna Gapys](https://github.com/justynagapys) <br />
-**Tematyka API:** Kino <br />
-**Baza:** MongoDB <br />
+# REST API 
+Application programming interface created in REST architecture.
+**Subject:** Cinema <br />
+**Bachend:** MongoDB <br />
 
