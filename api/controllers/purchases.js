@@ -1,47 +1,58 @@
 const mongoose = require('mongoose');
 const Purchase = require('../models/purchase');
 
-exports.allPurchases = (req, res, next) => {
+exports.getPurchases = (req, res, next) => {
     Purchase.find()
-    .then((docs) => {
-        res.status(200).json({
-            wiadomość: 'Historia dokonanych zakupów:',
-            info: docs,
-        });
-    })
-    .catch((err) => res.status(503).json({ wiadomość: err })); 
+        .then((docs) => {
+            res.status(200).json({
+                message: 'All purchases:',
+                info: docs,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: err });
+        })  
 };
 
-exports.newPurchase = (req, res, next) => {
+exports.postPurchase = (req, res, next) => {
     const purchase = new Purchase({
         _id: new mongoose.Types.ObjectId(),
         productName: req.body.productName,
         amount: req.body.amount,
         cost: req.body.cost,
     });
-    purchase.save()
-    .then((doc) => {
-        res.status(200).json({
-            wiadomość: 'Dodano do historii zakupów pozycję:',
-            info: doc,
-        });
+    purchase.save((saveErr) => {
+        if (saveErr) {
+            return res.status(412).send({
+                success: false,
+                message: saveErr
+            })
+        }
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    return res.status(201).json({
+        success: true,
+        message: 'Purchase successfully created',
+        info: purchase
+    });       
 };
 
-exports.purchaseDetails = (req, res, next) => {
+exports.getPurchase = (req, res, next) => {
     const id = req.params.purchaseId;
     Purchase.findById(id)
-    .then((doc) => {
-        res.status(200).json({
-            wiadomość: 'Szczegóły zakupu o identyfikatorze: ' + id,
-            info: doc,
-        });
-    })
-    .catch((err) => res.status(404).json({ wiadomość: err })); 
+        .then((doc) => {
+            res.status(200).json({
+                message: 'Purchase details with id: ' + id,
+                info: doc,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: err });
+        }) 
 };
 
-exports.purchaseUpdate = (req, res, next) => {
+exports.putPurchase = (req, res, next) => {
     const id = req.params.purchaseId;
     Purchase.findByIdAndUpdate(
         id,
@@ -54,22 +65,28 @@ exports.purchaseUpdate = (req, res, next) => {
         { new: true }
     )
     .then((doc) => {
-        res.status(201).json({ 
-            wiadomość: 'Zaktualizowano zakup o identyfikatorze ' + id,
+        res.status(200).json({ 
+            message: 'Purchase with id ' + id + ' successfully updated',
             info: doc,
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({ message: err });
+    }) 
 };
 
-exports.purchaseDelete = (req, res, next) => {
+exports.deletePurchase = (req, res, next) => {
     const id = req.params.purchaseId;
     Purchase.findByIdAndDelete(id)
-    .then((doc) => {
-        res.status(200).json({
-            wiadomość: 'Usunięto zakupy o nr ' + id,
-            info: doc,
-        });
-    })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+        .then((doc) => {
+            res.status(200).json({
+                message: 'Purchase with id: ' + id + ' successfully deleted',
+                info: doc,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: err });
+        }) 
 };

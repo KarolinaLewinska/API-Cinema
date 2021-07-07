@@ -9,7 +9,10 @@ exports.allMovies = (req, res, next) => {
             info: docs,
         });
     })
-    .catch((err) => res.status(500).json({message: err}));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    })     
 };
 
 exports.newMovie = (req, res, next) => {
@@ -28,7 +31,10 @@ exports.newMovie = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };
 
 exports.movieDetails = (req, res, next) => {
@@ -40,7 +46,10 @@ exports.movieDetails = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(404).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };
 
 exports.movieUpdate = (req, res, next) => {
@@ -62,7 +71,10 @@ exports.movieUpdate = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };
 
 exports.movieDelete = (req, res, next) => {
@@ -74,5 +86,8 @@ exports.movieDelete = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };

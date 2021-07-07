@@ -30,6 +30,8 @@
     "mongoose": "^5.11.8",
     "morgan": "^1.10.0",
     "qs": "^6.9.4",
+    "req": "^0.1.4",
+    "validatorjs": "^3.22.1",
     "yarn": "^1.22.10"
   },
   "devDependencies": {

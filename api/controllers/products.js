@@ -9,7 +9,10 @@ exports.allProducts = (req, res, next) => {
             info: docs,
         });
     })
-    .catch((err) => res.status(503).json({ wiadomość: err })); 
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    })  
 };
 
 exports.newProduct = (req, res, next) => {
@@ -25,7 +28,10 @@ exports.newProduct = (req, res, next) => {
             info: doc, 
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };
 
 exports.productDetails = (req, res, next) => {
@@ -37,7 +43,10 @@ exports.productDetails = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(404).json({ wiadomość: err })); 
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };
 
 exports.productUpdate = (req, res, next) => {
@@ -56,7 +65,10 @@ exports.productUpdate = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    }) 
 };
 
 exports.productDelete = (req, res, next) => {
@@ -68,5 +80,8 @@ exports.productDelete = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => res.status(500).json({ wiadomość: err }));
+    .catch((err) => {
+        console.log(err);
+        res.status(500).json({message: err});
+    })
 };
