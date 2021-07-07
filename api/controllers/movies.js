@@ -1,21 +1,21 @@
 const mongoose = require('mongoose');
 const Movie = require('../models/movie');
 
-exports.allMovies = (req, res, next) => {    
+exports.getMovies = (req, res, next) => {    
     Movie.find()
-    .then((docs) => {
-        res.status(200).json({
-            message: 'Dostępny Repertuar: ',
-            info: docs,
-        });
-    })
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json({message: err});
-    })     
+        .then((docs) => {
+            res.status(200).json({
+                message: 'All movies: ',
+                info: docs,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: err });
+        })     
 };
 
-exports.newMovie = (req, res, next) => {
+exports.postMovie = (req, res, next) => {
     const movie = new Movie({
         _id: new mongoose.Types.ObjectId(),
         title: req.body.title,   
@@ -25,34 +25,34 @@ exports.newMovie = (req, res, next) => {
         minimalAge: req.body.minimalAge,
     });
     movie.save()
-    .then((doc) => {
-        res.status(200).json({
-            message: 'Dodano nową pozycję do repertuaru:',
-            info: doc,
-        });
-    })
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json({message: err});
-    }) 
+        .then((doc) => {
+            res.status(200).json({
+                message: 'Movie successfully added',
+                info: doc,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({message: err});
+        }) 
 };
 
-exports.movieDetails = (req, res, next) => {
+exports.getMovie = (req, res, next) => {
     const id = req.params.movieId;
     Movie.findById(id)
-    .then((doc) => {
-        res.status(200).json({
-            message: 'Szczegóły pozycji o identyfikatorze: ' + id,
-            info: doc,
-        });
-    })
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json({message: err});
-    }) 
+        .then((doc) => {
+            res.status(200).json({
+                message: 'Movie\'s details with id: ' + id,
+                info: doc,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({message: err});
+        }) 
 };
 
-exports.movieUpdate = (req, res, next) => {
+exports.putMovie = (req, res, next) => {
     const id = req.params.movieId;
     Movie.findByIdAndUpdate(
         id, 
@@ -67,7 +67,7 @@ exports.movieUpdate = (req, res, next) => {
     )
     .then((doc) => {
         res.status(201).json({
-            message: 'Zaktualizowano pozycję o identyfikatorze: ' + id,
+            message: 'Movie with id: ' + id + ' successfully updated',
             info: doc,
         });
     })
@@ -77,17 +77,17 @@ exports.movieUpdate = (req, res, next) => {
     }) 
 };
 
-exports.movieDelete = (req, res, next) => {
+exports.deleteMovie = (req, res, next) => {
     const id = req.params.movieId;
     Movie.findByIdAndRemove(id)
-    .then((doc) => {
-        res.status(200).json({
-            message: 'Usunięto pozycję o identyfikatorze: ' + id,
-            info: doc,
-        });
-    })
-    .catch((err) => {
-        console.log(err);
-        res.status(500).json({message: err});
-    }) 
+        .then((doc) => {
+            res.status(200).json({
+                message: 'Movie with id: ' + id + ' successfully deleted',
+                info: doc,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({ message: err });
+        }) 
 };

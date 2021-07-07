@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const MoviesController = require('../controllers/movies');
 const checkAuth = require('../middleware/check-auth');
+const moviesValidationMiddleware = require('../middleware/movies-validation')
 
-
-router.get('/', checkAuth, MoviesController.allMovies);
-router.post('/', checkAuth,  MoviesController.newMovie);
-router.get('/:movieId', checkAuth,  MoviesController.movieDetails);
-router.patch('/:movieId', checkAuth,  MoviesController.movieUpdate);
-router.delete('/:movieId', checkAuth, MoviesController.movieDelete);
+router.get('/', checkAuth, MoviesController.getMovies);
+router.post('/', checkAuth, moviesValidationMiddleware.moviesValidator, MoviesController.postMovie);
+router.get('/:movieId', checkAuth,  MoviesController.getMovie);
+router.put('/:movieId', checkAuth, moviesValidationMiddleware.moviesValidator,  MoviesController.putMovie);
+router.delete('/:movieId', checkAuth, MoviesController.deleteMovie);
 
 module.exports = router;
 

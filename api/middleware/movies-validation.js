@@ -1,10 +1,12 @@
 const validator = require('../helpers/validate');
 
-const purchasesValidator = (req, res, next) => {
+const moviesValidator = (req, res, next) => {
     const validationRules = {
-        "productName": "required|string|min:2|max:100",
-        "amount": "required|string|min:1|max:100",
-        "cost": "required|numeric|min:1|max:10000"
+        "title": "required|string|min:2|max:100", 
+        "genre": "required|string|min:2|max:100",
+        "duration": "required|string|min:2|max:20",
+        "screeingRoom": "required|alpha_num|min:1|max:10000",
+        "minimalAge": "required|string|min:2|max:3"
     }
     validator(req.body, validationRules, {}, (err, status) => {
         if (!status) {
@@ -21,5 +23,5 @@ const purchasesValidator = (req, res, next) => {
 }
 
 module.exports = {
-    purchasesValidator
+    moviesValidator
 }
