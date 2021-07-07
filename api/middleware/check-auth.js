@@ -6,6 +6,6 @@ module.exports = (req, res, next) => {
         process.env.JWTpassword); 
         next();            
     } catch(err) {         
-        res.status(401).json({ wiadomość: 'Błąd autoryzacji!' }); 
+        res.status(401).json({ wiadomość: 'Authorization failed' }); 
     }
 }

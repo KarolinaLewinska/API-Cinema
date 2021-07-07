@@ -40,7 +40,7 @@ exports.getPurchase = (req, res, next) => {
     Purchase.findById(id)
         .then((doc) => {
             res.status(200).json({
-                message: 'Purchase details with id: ' + id,
+                message: 'Purchase\'s details with id: ' + id,
                 info: doc,
             });
         })

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const PurchasesController = require('../controllers/purchases');
 const checkAuth = require('../middleware/check-auth');
-const validator = require('../helpers/validate');
 const purchasesValidationMiddleware = require('../middleware/purchases-validation');
 
 router.get('/', checkAuth,  PurchasesController.getPurchases);
