@@ -1,4 +1,4 @@
-const validator = require('../helpers/validate');
+const validator = require('../helpers/validator');
 
 const authValidator = (req, res, next) => {
     const validationRules = {

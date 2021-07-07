@@ -33,7 +33,7 @@ exports.postMovie = (req, res, next) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({message: err});
+            res.status(500).json({ message: err });
         }) 
 };
 
@@ -48,7 +48,7 @@ exports.getMovie = (req, res, next) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({message: err});
+            res.status(500).json({ message: err });
         }) 
 };
 
@@ -73,7 +73,7 @@ exports.putMovie = (req, res, next) => {
     })
     .catch((err) => {
         console.log(err);
-        res.status(500).json({message: err});
+        res.status(500).json({ message: err });
     }) 
 };
 

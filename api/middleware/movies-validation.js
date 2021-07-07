@@ -1,11 +1,11 @@
-const validator = require('../helpers/validate');
+const validator = require('../helpers/validator');
 
 const moviesValidator = (req, res, next) => {
     const validationRules = {
-        "title": "required|string|min:2|max:100", 
-        "genre": "required|string|min:2|max:100",
+        "title": "required|string|min:2|max:50", 
+        "genre": "required|string|min:2|max:50",
         "duration": "required|string|min:2|max:20",
-        "screeingRoom": "required|alpha_num|min:1|max:10000",
+        "screeingRoom": "required|alpha_num|min:1|max:10",
         "minimalAge": "required|string|min:2|max:3"
     }
     validator(req.body, validationRules, {}, (err, status) => {

@@ -18,20 +18,20 @@ exports.getPurchases = (req, res, next) => {
 exports.postPurchase = (req, res, next) => {
     const purchase = new Purchase({
         _id: new mongoose.Types.ObjectId(),
-        productName: req.body.productName,
+        productsNames: req.body.productsNames,
         amount: req.body.amount,
         cost: req.body.cost,
     });
     purchase.save()
         .then((doc) => { 
             res.status(200).json({ 
-                wiadomość: 'Purchase successfully added',
+                message: 'Purchase successfully added',
                 info: doc, 
             });
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({message: err});
+            res.status(500).json({ message: err });
         })     
 };
 
@@ -55,7 +55,7 @@ exports.putPurchase = (req, res, next) => {
     Purchase.findByIdAndUpdate(
         id,
         {
-            productName: req.body.productName,
+            productsNames: req.body.productsNames,
             amount: req.body.amount,
             cost: req.body.cost,
             date: req.body.date,

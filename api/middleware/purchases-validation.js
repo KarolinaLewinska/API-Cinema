@@ -1,8 +1,8 @@
-const validator = require('../helpers/validate');
+const validator = require('../helpers/validator');
 
 const purchasesValidator = (req, res, next) => {
     const validationRules = {
-        "productName": "required|string|min:2|max:100",
+        "productsNames": "required|string|min:2|max:50",
         "amount": "required|string|min:1|max:100",
         "cost": "required|numeric|min:1|max:10000"
     }

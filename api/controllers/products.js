@@ -36,7 +36,6 @@ exports.postProduct = (req, res, next) => {
 
 exports.getProduct = (req, res, next) => {
     const id = req.params.productId;
-    
     Product.findById(id)
         .then((doc) => {
             res.status(200).json({
@@ -46,13 +45,12 @@ exports.getProduct = (req, res, next) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({message: err});
+            res.status(500).json({ message: err });
         }) 
 };
 
 exports.putProduct = (req, res, next) => {
     const id = req.params.productId;
-    
     Product.findByIdAndUpdate(
         id,
         {
@@ -75,7 +73,6 @@ exports.putProduct = (req, res, next) => {
 
 exports.deleteProduct = (req, res, next) => {
     const id = req.params.productId;
-    
     Product.findByIdAndDelete(id)
         .then((doc) => {
             res.status(200).json({
@@ -85,6 +82,6 @@ exports.deleteProduct = (req, res, next) => {
         })
         .catch((err) => {
             console.log(err);
-            res.status(500).json({message: err});
+            res.status(500).json({ message: err });
         })
 };

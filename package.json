@@ -14,7 +14,7 @@
     "REST",
     "MongoDB"
   ],
-  "author": "Karolina Lewińska, Justyna Gapys",
+  "author": "Karolina Lewińska",
   "license": "ISC",
   "dependencies": {
     "-": "0.0.1",
