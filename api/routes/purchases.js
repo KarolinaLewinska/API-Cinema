@@ -8,7 +8,7 @@ const purchasesValidationMiddleware = require('../middleware/purchases-validatio
 router.get('/', checkAuth,  PurchasesController.getPurchases);
 router.post('/', checkAuth, purchasesValidationMiddleware.purchasesValidator, PurchasesController.postPurchase);
 router.get('/:purchaseId', checkAuth, PurchasesController.getPurchase);
-router.put('/:purchaseId', checkAuth, PurchasesController.putPurchase);
+router.put('/:purchaseId', checkAuth, purchasesValidationMiddleware.purchasesValidator, PurchasesController.putPurchase);
 router.delete('/:purchaseId', checkAuth, PurchasesController.deletePurchase);
 
 module.exports = router; 

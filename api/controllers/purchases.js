@@ -22,19 +22,17 @@ exports.postPurchase = (req, res, next) => {
         amount: req.body.amount,
         cost: req.body.cost,
     });
-    purchase.save((saveErr) => {
-        if (saveErr) {
-            return res.status(412).send({
-                success: false,
-                message: saveErr
-            })
-        }
-    })
-    return res.status(201).json({
-        success: true,
-        message: 'Purchase successfully created',
-        info: purchase
-    });       
+    purchase.save()
+        .then((doc) => { 
+            res.status(200).json({ 
+                wiadomość: 'Purchase successfully added',
+                info: doc, 
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.status(500).json({message: err});
+        })     
 };
 
 exports.getPurchase = (req, res, next) => {
