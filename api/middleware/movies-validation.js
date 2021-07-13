@@ -8,6 +8,7 @@ const moviesValidator = (req, res, next) => {
         "screeingRoom": "required|alpha_num|min:1|max:10",
         "minimalAge": "required|string|min:2|max:3"
     }
+    
     validator(req.body, validationRules, {}, (err, status) => {
         if (!status) {
             res.status(412)
