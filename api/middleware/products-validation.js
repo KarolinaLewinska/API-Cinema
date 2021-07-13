@@ -5,6 +5,7 @@ const productsValidator = (req, res, next) => {
         "name": "required|string|min:2|max:50",
         "price": "required|numeric|min:1|max:10000",
     }
+    
     validator(req.body, validationRules, {}, (err, status) => {
         if (!status) {
             res.status(412)
