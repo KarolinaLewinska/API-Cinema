@@ -13,7 +13,7 @@ exports.getUsers = (req, res, next) => {
                 info: docs,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
@@ -52,7 +52,7 @@ exports.deleteUser = (req, res, next) => {
             res.status(200).json(
                 { message: 'User successfully deleted' });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
@@ -90,7 +90,7 @@ exports.logIn = (req, res, next) => {
                 }
             })
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({message: err});
         })
