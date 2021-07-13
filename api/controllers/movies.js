@@ -3,13 +3,13 @@ const Movie = require('../models/movie');
 
 exports.getMovies = (req, res, next) => {    
     Movie.find()
-        .then((docs) => {
+        .then ((docs) => {
             res.status(200).json({
                 message: 'All movies: ',
                 info: docs,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         })     
@@ -31,7 +31,7 @@ exports.postMovie = (req, res, next) => {
                 info: doc,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
@@ -46,7 +46,7 @@ exports.getMovie = (req, res, next) => {
                 info: doc,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
@@ -71,7 +71,7 @@ exports.putMovie = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => {
+    .catch ((err) => {
         console.log(err);
         res.status(500).json({ message: err });
     }) 
@@ -86,7 +86,7 @@ exports.deleteMovie = (req, res, next) => {
                 info: doc,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
