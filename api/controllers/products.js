@@ -9,7 +9,7 @@ exports.getProducts = (req, res, next) => {
                 info: docs,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         })  
@@ -28,7 +28,7 @@ exports.postProduct = (req, res, next) => {
                 info: doc, 
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
@@ -43,7 +43,7 @@ exports.getProduct = (req, res, next) => {
                 info: doc,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         }) 
@@ -65,7 +65,7 @@ exports.putProduct = (req, res, next) => {
             info: doc,
         });
     })
-    .catch((err) => {
+    .catch ((err) => {
         console.log(err);
         res.status(500).json({ message: err });
     }) 
@@ -80,7 +80,7 @@ exports.deleteProduct = (req, res, next) => {
                 info: doc,
             });
         })
-        .catch((err) => {
+        .catch ((err) => {
             console.log(err);
             res.status(500).json({ message: err });
         })
