@@ -5,6 +5,7 @@ const authValidator = (req, res, next) => {
         "email": "required|email|min:3|max:255",
         "password": "required|string|min:8|max:128"
     }
+    
     validator(req.body, validationRules, {}, (err, status) => {
         if (!status) {
             res.status(412)
