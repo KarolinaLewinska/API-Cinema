@@ -6,6 +6,7 @@ const purchasesValidator = (req, res, next) => {
         "amount": "required|string|min:1|max:100",
         "cost": "required|numeric|min:1|max:10000"
     }
+    
     validator(req.body, validationRules, {}, (err, status) => {
         if (!status) {
             res.status(412)
